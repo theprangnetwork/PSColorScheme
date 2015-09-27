@@ -98,6 +98,8 @@ protocol AlternateColorSchemeForUIActivityIndicator {
 
 ///defines a basic class for apps to use as a color scheme manager. it tracks the current color scheme, vibrates the device when schemes are switched, and posts NSNotifications to signal scheme changes. It also handles the archival of the last used color scheme, and restores it as needed.
 class ColorSchemeManager {
+    static let universalManager = ColorSchemeManager()
+    
     var currentColorScheme: ColorSchemeType
     
     init() {
@@ -140,6 +142,3 @@ class ColorSchemeManager {
         defaults.synchronize()
     }
 }
-
-///this declares a universal manager for you to use in your entire project. you really shouldn't have more than one of these.
-let universalManager = ColorSchemeManager()
